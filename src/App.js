@@ -30,26 +30,6 @@ export const InscriptionDetail = () => {
   useEffect(() => {
     fetchInscription("0");
   }, [])
-  const s = `<svg
-  xmlns="http://www.w3.org/2000/svg"
-  style="background-color: rgb(139, 201, 255);"
-  data-clct="doodinals"
-  version="1.1"
-  width="100%"
-  height="100%"
-  viewBox="0 0 600 600"
-  preserveAspectRatio="xMidYMid meet"
->
-  <g transform=" translate(177.00000000000003,94.99999999999997)">
-    <image
-      width="291"
-      height="391"
-      href="https://ordinals.com/content/6b4ff996190d799f46feee49bfbd6971e9382808be98f40ec6e73eb92bbd83aai0"
-      style="image-rendering: pixelated;"
-    />
-  </g>
-</svg>`;
-  
 
   return (
     <div className="inscription-detail">
@@ -62,7 +42,6 @@ export const InscriptionDetail = () => {
           }}
         />
         <Spacer y={1} />
-        <img src={s} alt="" />
         {
           insc?.data?.content_type.startsWith("image/") ?
             <Card hoverable shadow width="400px" height="400px">
@@ -82,9 +61,10 @@ export const InscriptionDetail = () => {
               </Display>
             </Card>
         }
-        {
-          <Text>{insc?.data?.content_type}</Text>
-        }
+        <Spacer y={1.5} />
+        <Text type="secondary" small>{insc?.data?.content_type}</Text>
+        <Text>{insc?.data?.inscription_id}</Text>
+        <Text>{insc?.data?.address}</Text>
       </header>
       <div>
 
